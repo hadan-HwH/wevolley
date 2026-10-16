@@ -105,13 +105,11 @@
 
 ## 기술 스택
 
-| 영역 | 사용 |
-| --- | --- |
-| 앱 | Expo SDK 55 · Expo Router(typed routes) · React Native 0.83 · React 19 · TypeScript 5.9 · NativeWind 4 · Reanimated 4 · FlashList 2 |
-| 데이터 | TanStack Query 5(AsyncStorage 캐시 영속화) · supabase-js |
-| 백엔드 | Supabase: Postgres · RLS · RPC · Realtime · Storage · Edge Functions(Deno) · pg_cron · pg_net |
-| 배포 | EAS Build · EAS Update(OTA) · Vercel(SPA + Node 서버리스) |
-| 품질 | ESLint · Prettier · Jest · Husky + lint-staged · GitHub Actions |
+- **앱**: Expo SDK 55 · Expo Router(typed routes) · React Native 0.83 · React 19 · TypeScript 5.9 · NativeWind 4 · Reanimated 4 · FlashList 2
+- **데이터**: TanStack Query 5(AsyncStorage 캐시 영속화) · supabase-js
+- **백엔드**: Supabase: Postgres · RLS · RPC · Realtime · Storage · Edge Functions(Deno) · pg_cron · pg_net
+- **배포**: EAS Build · EAS Update(OTA) · Vercel(SPA + Node 서버리스)
+- **품질**: ESLint · Prettier · Jest · Husky + lint-staged · GitHub Actions
 
 ## 관련
 
