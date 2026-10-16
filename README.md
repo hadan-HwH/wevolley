@@ -54,34 +54,9 @@
 
 ## 아키텍처
 
-```mermaid
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#F5F6F1", "primaryTextColor": "#17181A", "primaryBorderColor": "#17181A", "lineColor": "#4A4B46", "clusterBkg": "#FBFBF8", "clusterBorder": "#D9DAD3", "fontFamily": "Pretendard, -apple-system, sans-serif"}}}%%
-flowchart LR
-  MOB["모바일 앱<br/>Android · iOS"]
-  WEB["웹 SPA<br/>Vercel"]
-  CRAWL["카톡 · 슬랙 미리보기"]
-  OG["/s/type/id<br/>Vercel Node 서버리스"]
-  subgraph SB["Supabase"]
-    PG[("Postgres<br/>91 테이블 · 전부 RLS<br/>RPC 137 · pg_cron")]
-    RT["Realtime<br/>채팅"]
-    EF["Edge Functions<br/>share-page · send-push · place-search"]
-  end
-  PUSH["Expo Push"]
-
-  MOB --> PG
-  WEB --> PG
-  MOB <--> RT
-  WEB <--> RT
-  CRAWL --> OG
-  OG -->|"OG HTML 프록시"| EF
-  OG -.->|"사람이면 원본 URL"| WEB
-  PG -->|"알림 INSERT → 트리거"| EF
-  EF --> PUSH
-  PUSH --> MOB
-
-  classDef volt fill:#C8F135,stroke:#17181A,color:#17181A
-  class PG volt
-```
+<p align="center">
+  <img src="assets/architecture.png" width="100%" alt="아키텍처: 모바일 앱과 웹 SPA 가 supabase-js 로 Supabase(Postgres · Realtime · Edge Functions)를 쓰고, 공유 링크는 Vercel Node 서버리스가 share-page 를 프록시하며, 알림은 트리거 → send-push → Expo Push">
+</p>
 
 ## 엔지니어링
 
@@ -142,4 +117,4 @@ flowchart LR
 
 - [WeavePlay](https://github.com/hadan-HwH/weaveplay): 배구 경기 영상에서 공 궤적 · 접촉 · 랠리를 찾는 비전 파이프라인 기록
 
-<sub>숫자는 2026-10-16 기준(가입자는 봇 계정 제외). 숫자 카드는 `tools/render_numbers.py` 로 다시 그린다.</sub>
+<sub>숫자는 2026-10-16 기준(가입자는 봇 계정 제외). 숫자 카드와 아키텍처 그림은 `tools/` 의 스크립트로 다시 그린다.</sub>
