@@ -21,15 +21,17 @@ def main() -> None:
     a = ap.parse_args()
     f = lambda name, size: ImageFont.truetype(str(a.fonts / name), size)  # noqa: E731
     data = json.loads((ROOT / "tools" / "numbers.json").read_text(encoding="utf-8"))
-    W, H, pad, cols = 1760, 620, 72, 4
+    cells, cols, pad, top, rh = data["cells"], 4, 72, 140, 220
+    rows = -(-len(cells) // cols)
+    W, H = 1760, top + rows * rh + 24
     img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     d.rounded_rectangle((0, 0, W - 1, H - 1), 40, fill=INK)
     mono = f("IBMPlexMono-SemiBold.ttf", 28)
     d.text((pad, 58), "WEVOLLEY  BY  THE  NUMBERS", font=mono, fill=VOLT)
     d.text((W - pad, 58), data["date"], font=f("IBMPlexMono-Medium.ttf", 28), fill=GRAY, anchor="ra")
-    cw, top, rh = (W - 2 * pad) / cols, 140, 220
-    for i, (num, label, sub) in enumerate(data["cells"]):
+    cw = (W - 2 * pad) / cols
+    for i, (num, label, sub) in enumerate(cells):
         r, c = divmod(i, cols)
         x, y = pad + c * cw, top + r * rh
         if c:
@@ -37,7 +39,8 @@ def main() -> None:
         d.text((x, y), num, font=f("Archivo-BlackItalic.ttf", 92), fill=VOLT)
         d.text((x + 2, y + 118), label, font=f("Pretendard-SemiBold.otf", 32), fill=OFF)
         d.text((x + 2, y + 162), sub, font=f("Pretendard-Regular.otf", 24), fill=GRAY)
-    d.line((pad, top + rh - 12, W - pad, top + rh - 12), fill=LINE, width=2)
+    for r in range(1, rows):  # 줄 사이에만 가로선
+        d.line((pad, top + r * rh - 12, W - pad, top + r * rh - 12), fill=LINE, width=2)
     out = ROOT / "assets" / "numbers.png"
     img.save(out, optimize=True)
     print(out)
