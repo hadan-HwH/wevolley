@@ -27,7 +27,7 @@ def main() -> None:
     d = ImageDraw.Draw(img)
     d.rounded_rectangle((0, 0, W - 1, H - 1), 40, fill=INK)
     d.text((72, 58), "WEVOLLEY  ARCHITECTURE", font=mono, fill=VOLT)
-    d.text((W - 72, 58), "Expo Router · Supabase · Vercel", font=mono_s, fill=GRAY, anchor="ra")
+    d.text((W - 72, 58), "Expo Router · Supabase(self-hosted) · AWS", font=mono_s, fill=GRAY, anchor="ra")
 
     def box(x1, y1, x2, y2, head, lines=(), fill=BOX, fg=OFF, fg2=GRAY):
         d.rounded_rectangle((x1, y1, x2, y2), 22, fill=fill, outline=None if fill == VOLT else LINE, width=2)
@@ -60,20 +60,21 @@ def main() -> None:
 
     # 왼쪽: 한 코드베이스의 두 클라이언트
     box(72, 170, 392, 330, "모바일 앱", ["Android · iOS", "EAS Build · OTA"])
-    box(72, 420, 392, 580, "웹 SPA", ["react-native-web", "Vercel"])
+    box(72, 420, 392, 580, "웹 SPA", ["react-native-web", "S3 + CloudFront"])
     d.text((72, 620), "한 코드베이스", font=f("Pretendard-SemiBold.otf", 26), fill=VOLT)
-    d.text((72, 654), "Expo Router 화면 112개", font=sub, fill=GRAY)
+    d.text((72, 654), "Expo Router 화면 81개", font=sub, fill=GRAY)
 
     # 가운데: Supabase
     d.rounded_rectangle((552, 140, 1160, 800), 30, fill=PANEL, outline=LINE, width=2)
     d.text((584, 166), "SUPABASE", font=mono_s, fill=VOLT)
-    box(584, 210, 1128, 380, "Postgres", ["91 테이블 · 전부 RLS · RPC 137", "pg_cron · pg_net"], fill=VOLT, fg=INK, fg2=INK)
+    d.text((1128, 166), "오픈소스 직접 운영 · AWS 서울 EC2", font=small, fill=GRAY, anchor="ra")
+    box(584, 210, 1128, 380, "Postgres", ["72 테이블 · 전부 RLS · RPC", "pg_cron · pg_net"], fill=VOLT, fg=INK, fg2=INK)
     box(584, 440, 856, 560, "Realtime", ["채팅"])
-    box(584, 620, 1128, 768, "Edge Functions", ["share-page · send-push · place-search"])
+    box(584, 620, 1128, 768, "Edge Functions", ["share-page · send-push · video-* 등 10개"])
 
     # 오른쪽: 공유 링크 · 푸시
     box(1288, 170, 1688, 290, "카톡 · 슬랙 미리보기", ["OG 크롤러"])
-    box(1288, 370, 1688, 560, "/s/{type}/{id}", ["Vercel Node 서버리스", "OG HTML 프록시", "사람은 원본 URL 로"])
+    box(1288, 370, 1688, 560, "/s/{type}/{id}", ["CloudFront Function", "share-page 로 주소만 바꿈", "사람은 원본 URL 로"])
     box(1288, 640, 1688, 768, "Expo Push", ["기기로 알림"])
 
     # 화살표
@@ -89,8 +90,8 @@ def main() -> None:
     label(1208, 704, "send-push")
 
     # 아래: 배포 · 운영
-    chips = [("GITHUB ACTIONS", "CI · 매일 DB 백업 · 공유 링크 점검"), ("EAS", "development · preview · production + OTA"),
-             ("VERCEL", "웹 배포 · 정식 도메인으로 이동")]
+    chips = [("GITHUB ACTIONS", "CI · 웹 배포 · DB 백업 사본 · 링크 점검"), ("EAS", "빌드 3채널 + OTA"),
+             ("AWS", "서울 · EC2 · S3 · CloudFront · 매일 백업")]
     x = 72
     for head, text in chips:
         tw = d.textlength(head, font=mono_s) + 18 + d.textlength(text, font=sub) + 56
