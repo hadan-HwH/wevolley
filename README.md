@@ -31,7 +31,7 @@
 > 소개용 저장소다. 앱 코드는 비공개 저장소에 있다.
 
 <p align="center">
-  <img src="assets/numbers.png" width="100%" alt="가입자 325, 클럽 · 학원 정보 309, 화면 81, 테이블 72 (2026.11)">
+  <img src="assets/numbers.png" width="100%" alt="가입자 325, 클럽 · 학원 정보 309, 화면 81, 테이블 72">
 </p>
 
 ## 화면
@@ -97,7 +97,7 @@
 
 ### 인프라 이전
 
-- 2026년 10월, 관리형 Supabase 에서 AWS 서울의 오픈소스 Supabase 로 백엔드를 옮겼다. 전환에 걸린 시간은 22분.
+- 관리형 Supabase 에서 AWS 서울의 오픈소스 Supabase 로 백엔드를 옮겼다. 전환에 걸린 시간은 22분.
 - Postgres · S3 API · Docker 같은 표준만 써서 특정 클라우드에 묶이지 않는다. API 주소가 자체 도메인이라 다음 이전은 앱 업데이트 없이 끝난다.
 - DB 는 매일 자동으로 백업하고, 암호화한 사본을 클라우드 밖에도 둔다.
 
@@ -125,4 +125,4 @@
 
 - [Volleyball Vision](https://github.com/hadan-HwH/volleyball-vision): 배구 경기 영상에서 랠리와 터치를 찾는 비전 사이드 프로젝트
 
-<sub>숫자는 2026년 11월 기준. 숫자 카드와 아키텍처 그림은 `tools/` 의 스크립트로 다시 그린다.</sub>
+<sub>숫자 카드와 아키텍처 그림은 `tools/` 의 스크립트로 다시 그린다.</sub>

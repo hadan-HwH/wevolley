@@ -29,7 +29,6 @@ def main() -> None:
     d.rounded_rectangle((0, 0, W - 1, H - 1), 40, fill=INK)
     mono = f("IBMPlexMono-SemiBold.ttf", 28)
     d.text((pad, 58), "WEVOLLEY  BY  THE  NUMBERS", font=mono, fill=VOLT)
-    d.text((W - pad, 58), data["date"], font=f("IBMPlexMono-Medium.ttf", 28), fill=GRAY, anchor="ra")
     cw = (W - 2 * pad) / cols
     for i, (num, label, sub) in enumerate(cells):
         r, c = divmod(i, cols)
