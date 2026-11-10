@@ -63,6 +63,7 @@ def main() -> None:
     box(72, 420, 392, 580, "웹 SPA", ["react-native-web", "S3 + CloudFront"])
     d.text((72, 620), "한 코드베이스", font=f("Pretendard-SemiBold.otf", 26), fill=VOLT)
     d.text((72, 654), "Expo Router 화면 81개", font=sub, fill=GRAY)
+    box(72, 708, 392, 820, "GPU 처리 일꾼", ["재생본 · 분석 · 자르기"])
 
     # 가운데: Supabase
     d.rounded_rectangle((552, 140, 1160, 800), 30, fill=PANEL, outline=LINE, width=2)
@@ -74,7 +75,7 @@ def main() -> None:
 
     # 오른쪽: 공유 링크 · 푸시
     box(1288, 170, 1688, 290, "카톡 · 슬랙 미리보기", ["OG 크롤러"])
-    box(1288, 370, 1688, 560, "/s/{type}/{id}", ["CDN 엣지", "OG 미리보기 HTML", "사람은 원본 URL 로"])
+    box(1288, 370, 1688, 560, "/s/{type}/{id}", ["CDN 엣지", "OG 미리보기 HTML", "사람은 원본 URL로"])
     box(1288, 640, 1688, 768, "Expo Push", ["기기로 알림"])
 
     # 화살표
@@ -87,6 +88,8 @@ def main() -> None:
     arrow([(1488, 290), (1488, 370)])
     arrow([(1288, 520), (1224, 520), (1224, 650), (1128, 650)])
     arrow([(1128, 728), (1288, 728)])
+    arrow([(392, 750), (584, 750)])
+    label(470, 726, "video-worker")
     label(1208, 704, "send-push")
 
     # 아래: 배포 · 운영
