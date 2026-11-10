@@ -67,14 +67,14 @@ def main() -> None:
     # 가운데: Supabase
     d.rounded_rectangle((552, 140, 1160, 800), 30, fill=PANEL, outline=LINE, width=2)
     d.text((584, 166), "SUPABASE", font=mono_s, fill=VOLT)
-    d.text((1128, 166), "오픈소스 직접 운영 · AWS 서울 EC2", font=small, fill=GRAY, anchor="ra")
+    d.text((1128, 166), "오픈소스 직접 운영 · AWS 서울", font=small, fill=GRAY, anchor="ra")
     box(584, 210, 1128, 380, "Postgres", ["72 테이블 · 전부 RLS · RPC", "pg_cron · pg_net"], fill=VOLT, fg=INK, fg2=INK)
     box(584, 440, 856, 560, "Realtime", ["채팅"])
     box(584, 620, 1128, 768, "Edge Functions", ["share-page · send-push · video-* 등 10개"])
 
     # 오른쪽: 공유 링크 · 푸시
     box(1288, 170, 1688, 290, "카톡 · 슬랙 미리보기", ["OG 크롤러"])
-    box(1288, 370, 1688, 560, "/s/{type}/{id}", ["CloudFront Function", "share-page 로 주소만 바꿈", "사람은 원본 URL 로"])
+    box(1288, 370, 1688, 560, "/s/{type}/{id}", ["CDN 엣지", "OG 미리보기 HTML", "사람은 원본 URL 로"])
     box(1288, 640, 1688, 768, "Expo Push", ["기기로 알림"])
 
     # 화살표
@@ -91,7 +91,7 @@ def main() -> None:
 
     # 아래: 배포 · 운영
     chips = [("GITHUB ACTIONS", "CI · 웹 배포 · DB 백업 사본 · 링크 점검"), ("EAS", "빌드 3채널 + OTA"),
-             ("AWS", "서울 · EC2 · S3 · CloudFront · 매일 백업")]
+             ("AWS", "서울 · S3 + CloudFront · 매일 백업")]
     x = 72
     for head, text in chips:
         tw = d.textlength(head, font=mono_s) + 18 + d.textlength(text, font=sub) + 56
